@@ -8,7 +8,8 @@ data class Elemento(
     val foto: Int,
     val telefono: String,
     val latitud: Double,
-    val longitud: Double
+    val longitud: Double,
+    val descripcion: String
 ) {
     fun getMarker(): MarkerOptions {
         return MarkerOptions().position(
