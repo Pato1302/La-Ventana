@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/cards">
+
+    <fragment
+        android:id="@+id/cards"
+        android:name="com.example.laventana.ui.cards.Cards"
+        android:label="Cards" >
+        <action
+            android:id="@+id/action_cards_to_map2"
+            app:destination="@id/map2" />
+    </fragment>
+    <fragment
+        android:id="@+id/map2"
+        android:name="com.example.laventana.ui.map.Map"
+        android:label="Map" />
+</navigation>
