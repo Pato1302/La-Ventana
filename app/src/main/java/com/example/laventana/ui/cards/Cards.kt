@@ -13,6 +13,7 @@ import com.example.laventana.BottomNav
 import com.example.laventana.R
 import com.example.laventana.adapter.CustomAdapter
 import com.example.laventana.model.Lista
+import com.example.laventana.ui.info.Info
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.model.LatLng
 import com.example.laventana.ui.map.Map
@@ -102,7 +103,7 @@ class Cards : Fragment() {
                         Toast.LENGTH_SHORT
                     ).show()
 
-                    /*
+
                     // Abrir el fragmento de información
                     val fragment = Info()
                     val transaction = requireActivity().supportFragmentManager.beginTransaction()
@@ -110,17 +111,16 @@ class Cards : Fragment() {
                     transaction.addToBackStack(null)
                     transaction.commit()
 
-                    // Para pasar el nombre del lugar al fragmento de información
+                    // Para pasar los datos del lugar al fragmento de información
                     val bundle = Bundle()
                     bundle.putString("nombre", Lista.lista[position].nombre)
+                    bundle.putString("descripcion", Lista.lista[position].descripcion)
+                    bundle.putString("ubicacion", Lista.lista[position].ubicacion)
+                    bundle.putString("telefono", Lista.lista[position].telefono)
+                    bundle.putInt("foto", Lista.lista[position].foto)
                     fragment.arguments = bundle
 
-                    // Para pasar la descripción del lugar al fragmento de información
-                    val bundle2 = Bundle()
-                    bundle2.putString("descripcion", Lista.lista[position].descripcion)
-                    fragment.arguments = bundle2
 
-                     */
 
                 }
             })
