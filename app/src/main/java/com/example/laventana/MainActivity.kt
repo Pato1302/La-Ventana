@@ -63,6 +63,18 @@ class MainActivity : AppCompatActivity(), LocationListener {
                 override fun onItemClick(position: Int) {
                     mapa.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(Lista.lista[position].latitud, Lista.lista[position].longitud), 15f))
                 }
+
+                override fun onIrButtonClick(position: Int) {
+                    TODO("Not yet implemented")
+                }
+
+                override fun onVerButtonClick(position: Int) {
+                    TODO("Not yet implemented")
+                }
+
+                override fun onInfoButtonClick(position: Int) {
+                    TODO("Not yet implemented")
+                }
             })
         }
 
