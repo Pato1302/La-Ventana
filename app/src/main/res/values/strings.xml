@@ -24,4 +24,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string> <!-- Texto de la pantalla cards -->
 
+    <string name="Descripcion">-Descripcion</string> <!-- Texto de la pantalla info -->
+    <string name="Ubicacion">-Ubicacion</string> <!-- Texto de la pantalla info -->
+    <string name="TelefonoInfo">-Telefono</string> <!-- Texto de la pantalla info -->
+
 </resources>

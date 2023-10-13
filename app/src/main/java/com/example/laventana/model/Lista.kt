@@ -5,7 +5,7 @@ import com.example.laventana.R
 object Lista {
     val lista = mutableListOf<Elemento>(
         Elemento("La Ventana",
-            "La Ventana - Centro Educativo para el Desarrollo Sustentable, 29963 Palenque, Chis., México",
+            "Centro Educativo para el Desarrollo Sustentable, 29963 Palenque, Chis., México",
             R.drawable.laventana,
             "+52 916 118 0699",
             17.454407886864217,
@@ -22,7 +22,7 @@ object Lista {
             -91.98688951637247,
             "Café Jade es un restaurante de comida mexicana, con un toque de comida internacional, ubicado en el corazón de Palenque, Chiapas.\\n\u200BOfrecemos una gran variedad de platillos, desde desayunos, comidas y cenas, hasta postres y bebidas.\\n\u200BContamos con un ambiente familiar, con un toque de elegancia y un servicio de calidad.\\n\u200B¡Visítanos!"),
         Elemento("Bambú Maya",
-            "Bambú Maya, km 4.5 carretera a, Carr. Zona Arqueológica \" Palenque \", C. P, 29960 Palenque, Chis",
+            "Bambú Maya, km 4.5 carretera a, Carr. Zona Arqueológica Palenque, C. P, 29960 Palenque, Chis",
             R.drawable.bambumaya,
             "+52 993 251 9970",
             17.493193847150113,

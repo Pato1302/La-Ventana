@@ -7,9 +7,13 @@
 
     <Button
         android:id="@+id/btnRegresar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:foregroundGravity="clip_horizontal"
+        android:gravity="center"
         app:icon="@android:drawable/ic_delete"
+        app:iconGravity="textStart"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,43 +31,75 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgImagenInfo" />
 
     <TextView
-        android:id="@+id/txtUbicacionInfo"
+        android:id="@+id/des"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:text="@string/Descripcion"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtNameInfo" />
-
-    <TextView
-        android:id="@+id/txtTelefonoInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUbicacionInfo" />
 
     <TextView
         android:id="@+id/txtDesInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:paddingBottom="20dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTelefonoInfo" />
+        app:layout_constraintTop_toBottomOf="@+id/des" />
 
     <TextView
-        android:id="@+id/txtCatInfo"
+        android:id="@+id/ubi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/Descripcion"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtDesInfo" />
+
+    <TextView
+        android:id="@+id/txtUbicacionInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:paddingBottom="20dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDesInfo" />
+        app:layout_constraintTop_toBottomOf="@+id/ubi" />
+
+    <TextView
+        android:id="@+id/tel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/TelefonoInfo"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtUbicacionInfo" />
+
+    <TextView
+        android:id="@+id/txtTelefonoInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/tel"
+        app:layout_constraintTop_toBottomOf="@+id/txtUbicacionInfo" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

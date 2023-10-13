@@ -20,11 +20,7 @@ import com.example.laventana.ui.map.Map
 
 
 class Cards : Fragment() {
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         val view: View = inflater.inflate(R.layout.fragment_cards, container, false)
 
@@ -44,56 +40,18 @@ class Cards : Fragment() {
                 }
 
                 override fun onIrButtonClick(position: Int) {
-                    //Toast.makeText(requireActivity(), "Ir a ${Lista.lista[position].nombre}", Toast.LENGTH_SHORT).show()
-                    //mapa.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(mapa.myLocation.latitude, mapa.myLocation.longitude), 15f))
-
-                    /*
-                    // Para mover al fragmento de mapa
-                    val fragment = Map()
-                    val transaction = requireActivity().supportFragmentManager.beginTransaction()
-                    transaction.replace(R.id.contenedor, fragment)
-                    transaction.addToBackStack(null)
-                    transaction.commit()
-
-                    // Para mover la cámara a la ubicación del lugar
-                    //mapa.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(Lista.lista[position].latitud, Lista.lista[position].longitud), 15f))
-
-                     */
+                    // Cambiar el bottom navigation
                 }
 
                 override fun onVerButtonClick(position: Int) {
-
-                    /*
-                    // Cambiar eñ bottom navigation
-                    val activity = requireActivity() as BottomNav
-                    activity.irAMapa()
-                     */
-
                     // Cambiar el bottom navigation
                     val activity = requireActivity() as BottomNav
-                    activity.ChangeItem("mapa", Lista.lista[position].latitud, Lista.lista[position].longitud)
-
-
-
-                    /*
-                    // Pasar a la actividad de mapas
-                    val fragment = Map()
-                    val transaction = requireActivity().supportFragmentManager.beginTransaction()
-                    transaction.replace(R.id.contenedor, fragment)
-                    transaction.addToBackStack(null)
-
-                    // Para pasar la latitud y longitud del lugar al fragmento de mapa
-                    val bundle = Bundle()
-                    bundle.putDouble("latitud", Lista.lista[position].latitud)
-                    bundle.putDouble("longitud", Lista.lista[position].longitud)
-                    fragment.arguments = bundle
-
-                    transaction.commit()
-
-                     */
-
+                    activity.ChangeItem(
+                        "mapa",
+                        Lista.lista[position].latitud,
+                        Lista.lista[position].longitud
+                    )
                 }
-
 
 
                 override fun onInfoButtonClick(position: Int) {
@@ -119,15 +77,9 @@ class Cards : Fragment() {
                     bundle.putString("telefono", Lista.lista[position].telefono)
                     bundle.putInt("foto", Lista.lista[position].foto)
                     fragment.arguments = bundle
-
-
-
                 }
             })
-
-
         }
-
         return view
     }
 }

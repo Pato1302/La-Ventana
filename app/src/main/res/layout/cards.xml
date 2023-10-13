@@ -9,11 +9,12 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="#FFFFFF">
+        app:cardBackgroundColor="#CCC8C8">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="10dp"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -57,28 +58,30 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="TextView"
-                            android:textSize="20sp" />
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/txtTelefono"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="TextView" />
+                            android:text="TextView"
+                            android:visibility="gone" />
 
                     </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_gravity="center"
                     android:orientation="horizontal">
 
                     <Button
                         android:id="@+id/btnVer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="100dp"
+                        android:backgroundTint="#397A27"
                         android:text="@string/Ver" />
 
                     <Button
@@ -86,7 +89,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="20dp"
-                        android:layout_weight="1"
+                        android:backgroundTint="#1C5C0D"
                         android:text="@string/Info" />
 
                     <Button
@@ -95,7 +98,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginRight="20dp"
                         android:layout_weight="1"
-                        android:text="@string/Ir" />
+                        android:text="@string/Ir"
+                        android:visibility="gone" />
                 </LinearLayout>
             </LinearLayout>
 

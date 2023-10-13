@@ -34,10 +34,17 @@ class Map: Fragment(), LocationListener {
 
         locationManager = requireActivity().getSystemService(Context.LOCATION_SERVICE) as LocationManager // Para obtener la ubicación del usuario
 
+
+        var latitud = 0.0
+        var longitud = 0.0
+
         // Obtener los datos del lugar con shared preferences
         val sharedPreferences = requireActivity().getSharedPreferences("location", Context.MODE_PRIVATE)
-        val latitud = sharedPreferences.getString("latitud", "Latitud")?.toDouble()
-        val longitud = sharedPreferences.getString("longitud", "Longitud")?.toDouble()
+        // Si no hay datos, poner la ubicación de mexico
+        if (sharedPreferences.getString("latitud", "Latitud") != "Latitud") {
+            latitud = sharedPreferences.getString("latitud", "Latitud")?.toDouble() ?: 0.0
+            longitud = sharedPreferences.getString("longitud", "Longitud")?.toDouble() ?: 0.0
+        }
 
         mapFragment.getMapAsync { googleMap ->
             mapa = googleMap
@@ -54,15 +61,9 @@ class Map: Fragment(), LocationListener {
             mapa.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(23.634501, -102.552784), 5f))
 
             // Mover la cámara a la ubicación del lugar
-            if (latitud != null && longitud != null) {
+            if (latitud != 0.0 && longitud != 0.0) {
                 mapa.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(latitud, longitud), 15f))
             }
-
-            // Mover la cámara a la ubicación del usuario
-            //mapa.moveCamera()
-
-            //Mover la cámara a la ubicación del usuario
-            //mapa.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(mapa.myLocation.latitude, mapa.myLocation.longitude), 15f)) // No funciona porque el mapa no ha cargado la ubicación del usuario
         }
         // Solicitar permiso de ubicación
         if (ActivityCompat.checkSelfPermission(
@@ -104,14 +105,6 @@ class Map: Fragment(), LocationListener {
     override fun onLocationChanged(location: Location) {
         //Log.d("Map", "Latitud: ${location.latitude} Longitud: ${location.longitude}")
 
-    }
-
-    // Función para mover la cámara a la ubicación del usuario
-
-    fun moveCameraToLocation(latitud: Double, longitud: Double) {
-        val ubicacion = LatLng(latitud, longitud)
-        val cameraUpdate = CameraUpdateFactory.newLatLngZoom(ubicacion, 15f)
-        mapa.moveCamera(cameraUpdate)
     }
 
 }
