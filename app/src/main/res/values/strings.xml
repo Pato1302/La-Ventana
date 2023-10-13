@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">La Ventana</string> <!-- Nombre de la app -->
+    <string name="venConocer">¡Ven y conocenos!</string> <!-- Texto de la pantalla principal -->
+    <string name="LaRuta">La ruta del jaguar</string> <!-- Texto de la pantalla principal -->
+    <string name="ubicanos">Ubicanos en el mapa</string> <!-- Texto de la pantalla mapa -->
+    <string name="afiliados">Todos nuestros afiliados</string> <!-- Texto de la pantalla mapa -->
+
+    <string name="Iniciar">Iniciar sesión</string> <!-- Texto de la pantalla login -->
+    <string name="Usuario">Usuario</string> <!-- Texto de la pantalla login y registro -->
+    <string name="Contraseña">Contraseña</string> <!-- Texto de la pantalla login y registro -->
+    <string name="Ingresar">Ingresar</string> <!-- Texto de la pantalla login -->
+    <string name="Crear">Crear cuenta</string> <!-- Texto de la pantalla login -->
+
+    <string name="Registrarse">Registrarse</string> <!-- Texto de la pantalla registro -->
+    <string name="Nombre">Nombre</string> <!-- Texto de la pantalla registro -->
+    <string name="Correo">Correo</string> <!-- Texto de la pantalla registro -->
+    <string name="Telefono">Telefono</string> <!-- Texto de la pantalla registro       NO INGRESADO-->
+    <string name="Confirmar">Confirmar</string> <!-- Texto de la pantalla registro -->
+    <string name="YaTienes">¿Ya tienes una cuenta?</string> <!-- Texto de la pantalla registro -->
+
+    <string name="Ver">Ver</string> <!-- Texto de la pantalla cards -->
+    <string name="Info">Info</string> <!-- Texto de la pantalla cards -->
+    <string name="Ir">Ir</string> <!-- Texto de la pantalla cards -->
+
+</resources>
