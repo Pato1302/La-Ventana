@@ -17,10 +17,17 @@ import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import com.example.laventana.R
 import com.example.laventana.model.Lista
+import com.example.laventana.model.Proyecto
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import mx.tec.a2doexamen.utility.AppDatabase
 
 class Map: Fragment(), LocationListener {
     lateinit var mapa: GoogleMap
@@ -29,6 +36,9 @@ class Map: Fragment(), LocationListener {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         val view: View = inflater.inflate(R.layout.fragment_map, container, false)
+
+        val db = AppDatabase.getInstance(this.requireContext()) // Inicializar base de datos
+        val list = mutableListOf<Proyecto>()
 
         var mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
 
@@ -52,10 +62,7 @@ class Map: Fragment(), LocationListener {
             // Controles zoom
             mapa.uiSettings.isZoomControlsEnabled = true // Para mostrar los controles de zoom
 
-            // Agregar marcadores
-            for (i in Lista.lista) {
-                mapa.addMarker(i.getMarker())
-            }
+            addMarker(db, list)
 
             // Mover la camara a mexico
             mapa.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(23.634501, -102.552784), 5f))
@@ -105,6 +112,20 @@ class Map: Fragment(), LocationListener {
     override fun onLocationChanged(location: Location) {
         //Log.d("Map", "Latitud: ${location.latitude} Longitud: ${location.longitude}")
 
+    }
+
+    @OptIn(DelicateCoroutinesApi::class)
+    fun addMarker(db : AppDatabase, lista : MutableList<Proyecto>) {
+        GlobalScope.launch(Dispatchers.IO) {
+            val list = db.proyectoDao().obtenerProyectos()
+            lista.addAll(list)
+
+            withContext(Dispatchers.Main){
+                for (i in lista) {
+                    mapa.addMarker(i.getMarker())
+                }
+            }
+        }
     }
 
 }
