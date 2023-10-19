@@ -6,15 +6,15 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.laventana.R
-import com.example.laventana.model.Elemento
+import com.example.laventana.model.Proyecto
+import com.bumptech.glide.Glide
 
 class CustomAdapter(
     val context: Context,
     val layout: Int,
-    val dataSource: List<Elemento>
+    val dataSource: List<Proyecto>
 ) : RecyclerView.Adapter<CustomAdapter.ElementoViewHolder>() {
 
     interface OnItemClickListener {
@@ -39,7 +39,7 @@ class CustomAdapter(
         var nombre: TextView? = null
         var ubicacion: TextView? = null
         var foto: ImageView? = null
-        var telefono: TextView? = null
+        var categoria: TextView? = null
         var buttonIr: Button? = null
         var buttonVer: Button? = null
         var buttonInfo: Button? = null
@@ -48,7 +48,7 @@ class CustomAdapter(
             nombre = itemView.findViewById(R.id.txtName) as TextView
             ubicacion = itemView.findViewById(R.id.txtUbicacion) as TextView
             foto = itemView.findViewById(R.id.imgImagen) as ImageView
-            telefono = itemView.findViewById(R.id.txtTelefono) as TextView
+            categoria = itemView.findViewById(R.id.txtCategoria) as TextView
             buttonIr = itemView.findViewById(R.id.btnIr) as Button
             buttonVer = itemView.findViewById(R.id.btnVer) as Button
             buttonInfo = itemView.findViewById(R.id.btnInfo) as Button
@@ -65,13 +65,12 @@ class CustomAdapter(
             }
         }
 
-        fun bind(elemento: Elemento) {
+        fun bind(elemento: Proyecto) {
             nombre!!.text = elemento.nombre
-            ubicacion!!.text = elemento.ubicacion
-            foto!!.setImageResource(elemento.foto)
-            telefono!!.text = elemento.telefono
+            ubicacion!!.text = elemento.estado
+            categoria!!.text = elemento.categoriaProyecto
+            Glide.with(itemView.context).load(elemento.imagenProyecto).into(foto!!)
         }
-
 
     }
 
@@ -85,7 +84,7 @@ class CustomAdapter(
     }
 
     override fun onBindViewHolder(holder: ElementoViewHolder, position: Int) { // Se ejecuta por cada elemento de la lista
-        val elemento: Elemento = dataSource[position]
+        val elemento: Proyecto = dataSource[position]
         holder.bind(elemento)
 
         holder.itemView.setOnClickListener { // Establecer el listener para el elemento

@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity(), LocationListener {
         super.onCreate(savedInstanceState)
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        /*
 
         var mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
 
@@ -111,13 +112,16 @@ class MainActivity : AppCompatActivity(), LocationListener {
             // El permiso ya está concedido, obtener la ubicación
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0f, this)
         }
-
+    */
 
     }
+
 
     override fun onLocationChanged(location: Location) {
         Log.d("ubicacion", "Latitud: ${location.latitude} Longitud: ${location.longitude}")
     }
+
+
 
 
 }
