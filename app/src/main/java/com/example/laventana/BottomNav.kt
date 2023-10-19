@@ -36,16 +36,6 @@ class BottomNav : AppCompatActivity() {
     fun ChangeItem(item: String, lat: Double, long: Double) {
         when (item) {
             "mapa" -> {
-                Toast.makeText(this, "Mapa", Toast.LENGTH_SHORT).show()
-
-                /*
-                // Pasar la latitud y longitud al fragmento de mapa
-                val bundle = Bundle()
-                bundle.putDouble("latitud", lat)
-                bundle.putDouble("longitud", long)
-                navController.navigate(R.id.map2, bundle)
-                 */
-
                 // Pasar la latitud y longitud al fragmento de mapa por shared preferences
                 val sharedPreferences = getSharedPreferences("location", MODE_PRIVATE)
                 with(sharedPreferences.edit()) {

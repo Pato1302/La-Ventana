@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">La Ventana</string> <!-- Nombre de la app -->
+    <string name="app_name">La Ruta del Jaguar</string> <!-- Nombre de la app -->
     <string name="venConocer">¡Ven y conocenos!</string> <!-- Texto de la pantalla principal -->
     <string name="LaRuta">La ruta del jaguar</string> <!-- Texto de la pantalla principal -->
     <string name="ubicanos">Ubicanos en el mapa</string> <!-- Texto de la pantalla mapa -->
@@ -21,11 +21,12 @@
     <string name="Ver">Ver</string> <!-- Texto de la pantalla cards -->
     <string name="Info">Info</string> <!-- Texto de la pantalla cards -->
     <string name="Ir">Ir</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string> <!-- Texto de la pantalla cards -->
 
+    <string name="Categoria">-Categoria</string> <!-- Texto de la pantalla info -->
     <string name="Descripcion">-Descripcion</string> <!-- Texto de la pantalla info -->
-    <string name="Ubicacion">-Ubicacion</string> <!-- Texto de la pantalla info -->
-    <string name="TelefonoInfo">-Telefono</string> <!-- Texto de la pantalla info -->
+    <string name="Ubicacion">-Estado</string> <!-- Texto de la pantalla info -->
+    <string name="Tipo">-Tipo</string> <!-- Texto de la pantalla info -->
+    <string name="Horario">-Horario</string> <!-- Texto de la pantalla info -->
+    <string name="url">-Url</string> <!-- Texto de la pantalla info -->
 
 </resources>

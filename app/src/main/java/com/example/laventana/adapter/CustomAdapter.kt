@@ -38,7 +38,7 @@ class CustomAdapter(
     ) : RecyclerView.ViewHolder(inflater.inflate(layout, parent, false)) {
         var nombre: TextView? = null
         var ubicacion: TextView? = null
-        var foto: ImageView? = null
+        var logo: ImageView? = null
         var categoria: TextView? = null
         var buttonIr: Button? = null
         var buttonVer: Button? = null
@@ -47,7 +47,7 @@ class CustomAdapter(
         init {
             nombre = itemView.findViewById(R.id.txtName) as TextView
             ubicacion = itemView.findViewById(R.id.txtUbicacion) as TextView
-            foto = itemView.findViewById(R.id.imgImagen) as ImageView
+            logo = itemView.findViewById(R.id.imgImagen) as ImageView
             categoria = itemView.findViewById(R.id.txtCategoria) as TextView
             buttonIr = itemView.findViewById(R.id.btnIr) as Button
             buttonVer = itemView.findViewById(R.id.btnVer) as Button
@@ -69,7 +69,7 @@ class CustomAdapter(
             nombre!!.text = elemento.nombre
             ubicacion!!.text = elemento.estado
             categoria!!.text = elemento.categoriaProyecto
-            Glide.with(itemView.context).load(elemento.imagenProyecto).into(foto!!)
+            Glide.with(itemView.context).load(elemento.logoProyecto).into(logo!!)
         }
 
     }

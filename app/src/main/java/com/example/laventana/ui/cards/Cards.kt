@@ -112,20 +112,13 @@ class Cards : Fragment() {
                             val activity = requireActivity() as BottomNav
                             activity.ChangeItem(
                                 "mapa",
-                                Lista.lista[position].latitud,
-                                Lista.lista[position].longitud
+                                list[position].latitud,
+                                list[position].longitud
                             )
                         }
 
 
                         override fun onInfoButtonClick(position: Int) {
-                            Toast.makeText(
-                                requireActivity(),
-                                "Info ${Lista.lista[position].nombre}",
-                                Toast.LENGTH_SHORT
-                            ).show()
-
-
                             // Abrir el fragmento de información
                             val fragment = Info()
                             val transaction =
@@ -136,11 +129,16 @@ class Cards : Fragment() {
 
                             // Para pasar los datos del lugar al fragmento de información
                             val bundle = Bundle()
-                            bundle.putString("nombre", Lista.lista[position].nombre)
-                            bundle.putString("descripcion", Lista.lista[position].descripcion)
-                            bundle.putString("ubicacion", Lista.lista[position].ubicacion)
-                            bundle.putString("telefono", Lista.lista[position].telefono)
-                            bundle.putInt("foto", Lista.lista[position].foto)
+                            bundle.putString("nombre", list[position].nombre)
+                            bundle.putString("categoria", list[position].categoriaProyecto)
+                            bundle.putString("descripcion", list[position].descripcionProyecto)
+                            bundle.putString("url", list[position].urlProyecto)
+                            bundle.putString("logo", list[position].logoProyecto)
+                            bundle.putString("imagen", list[position].imagenProyecto)
+                            bundle.putString("tipo", list[position].tipoProyecto)
+                            bundle.putString("estado", list[position].estado)
+                            bundle.putString("horario_apertura", list[position].horarioAperturaProyecto)
+                            bundle.putString("horario_cierre", list[position].horarioCierreProyecto)
                             fragment.arguments = bundle
                         }
                     })
