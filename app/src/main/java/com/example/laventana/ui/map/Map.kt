@@ -56,22 +56,6 @@ class Map: Fragment(), LocationListener {
             longitud = sharedPreferences.getString("longitud", "Longitud")?.toDouble() ?: 0.0
         }
 
-        mapFragment.getMapAsync { googleMap ->
-            mapa = googleMap
-            mapa.isMyLocationEnabled = true // Para mostrar el punto azul de la ubicación del usuario
-            // Controles zoom
-            mapa.uiSettings.isZoomControlsEnabled = true // Para mostrar los controles de zoom
-
-            addMarker(db, list)
-
-            // Mover la camara a mexico
-            mapa.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(23.634501, -102.552784), 5f))
-
-            // Mover la cámara a la ubicación del lugar
-            if (latitud != 0.0 && longitud != 0.0) {
-                mapa.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(latitud, longitud), 15f))
-            }
-        }
         // Solicitar permiso de ubicación
         if (ActivityCompat.checkSelfPermission(
                 this.requireActivity(),
@@ -106,12 +90,30 @@ class Map: Fragment(), LocationListener {
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0f, this)
         }
 
+        mapFragment.getMapAsync { googleMap ->
+            mapa = googleMap
+            mapa.isMyLocationEnabled = true // Para mostrar el punto azul de la ubicación del usuario
+            // Controles zoom
+            mapa.uiSettings.isZoomControlsEnabled = true // Para mostrar los controles de zoom
+
+            addMarker(db, list)
+            mapa.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(23.634501, -102.552784), 5f))
+            sharedPreferences.edit().putString("latitud", 0.1.toString()).apply()
+            sharedPreferences.edit().putString("longitud", 0.1.toString()).apply()
+
+            // Mover la cámara a la ubicación del lugar
+            if (latitud != 0.1 && longitud != 0.1 && latitud != 0.0 && longitud != 0.0) {
+                mapa.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(latitud, longitud), 15f))
+            }
+        }
+
+
         return view
     }
 
+
     override fun onLocationChanged(location: Location) {
         //Log.d("Map", "Latitud: ${location.latitude} Longitud: ${location.longitude}")
-
     }
 
     @OptIn(DelicateCoroutinesApi::class)
